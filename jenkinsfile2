@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Code Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/mkranthi/kubernetes-automation.git'
+                git branch: 'main', url: 'https://github.com/mkranthi/Docker.git'
             }
         }
         
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('create pod'){
             steps{
-                sh "kubectl create -f app-pod1.yaml"
+                sh "kubectl create -f app-pod.yaml"
             }
         }
     }
