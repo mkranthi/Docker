@@ -20,7 +20,7 @@ pipeline {
         }
         stage('docker tag'){
             steps{
-                sh "docker tag appimage-jfrog devcompute.jfrog.io/dev-auto/ademo1-image"   
+                sh "docker tag appimage-jfrog devcompute.jfrog.io/dev-auto/demo1-image"   
             }
         }
         stage('push into jfrog artifactory'){
