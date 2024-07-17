@@ -4,7 +4,7 @@ metadata:
   name: ngnix-pod
 spec:
   containers:
-    - name: firstpod
+    - name: deploy-pod
       image: devcompute.jfrog.io/itsoli-docker-develop-local/demo2-image
       ports:
         - containerPort: 80
