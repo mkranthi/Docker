@@ -1,4 +1,5 @@
 pipeline {
+
     agent any
     stages {
         stage('Code Checkout') {
@@ -14,7 +15,7 @@ pipeline {
         }
         stage('pullimage from jfrog artifactory'){
             steps{
-                sh "docker pull devcompute.jfrog.io/dev-auto/appimage-jfrog"
+                sh "docker pull devcompute.jfrog.io/itsoli-docker-develop-local/demo2-image"
             }
         }
         stage('create pod'){
