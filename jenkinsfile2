@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage('Code Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/mkranthi/kubernetes-automation.git'
+            }
+        }
+        
+        stage('login into jfrog artifactory'){
+            steps{
+                sh "docker login https://devcompute.jfrog.io -u admin -p Devops@1"
+            }
+        }
+        stage('pullimage from jfrog artifactory'){
+            steps{
+                sh "docker pull devcompute.jfrog.io/dev-auto/appimage-jfrog"
+            }
+        }
+        stage('create pod'){
+            steps{
+                sh "kubectl create -f app-pod1.yaml"
+            }
+        }
+    }
+}
