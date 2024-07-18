@@ -12,6 +12,11 @@ pipeline {
                 sh "kubectl create -f sample-pod.yaml"
             }
         }
+        stage('list the pods'){
+            steps{
+                sh "kubectl get pods"
+            }
+        }
     }
 }
 
