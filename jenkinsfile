@@ -9,7 +9,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    sh 'docker build -t demo2-image .'
+                    sh 'docker build -t demo3-image .'
                 }
             }
         }
@@ -20,12 +20,12 @@ pipeline {
         }
         stage('docker tag'){
             steps{
-                sh "docker tag appimage-jfrog devcompute.jfrog.io/itsoli-docker-develop-local/demo2-image"   
+                sh "docker tag appimage-jfrog devcompute.jfrog.io/itsoli-docker-develop-local/demo3-image"   
             }
         }
         stage('push into jfrog artifactory'){
             steps{
-                sh "docker push devcompute.jfrog.io/itsoli-docker-develop-local/demo2-image"
+                sh "docker push devcompute.jfrog.io/itsoli-docker-develop-local/demo3-image"
             }
         }
         
