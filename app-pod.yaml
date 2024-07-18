@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
     - name: deploy-pod
-      image: demo3-image
+      image: devcompute.jfrog.io/itsoli-docker-develop-local/demo3-image
       ports:
         - containerPort: 80
