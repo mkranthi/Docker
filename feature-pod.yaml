@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: feature-podßß
+spec:
+  containers:
+    - name: deploy-pod
+      image: demo3-image
+      ports:
+        - containerPort: 80
