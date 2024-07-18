@@ -15,7 +15,7 @@ pipeline {
         }
         stage('pullimage from jfrog artifactory'){
             steps{
-                sh "docker pull devcompute.jfrog.io/itsoli-docker-develop-local/demo2-image"
+                sh "docker pull devcompute.jfrog.io/itsoli-docker-develop-local/demo3-image"
             }
         }
         stage('create pod'){
