@@ -4,17 +4,7 @@ pipeline {
     stages {
         stage('Code Checkout') {
             steps {
-                git url: 'https://github.com/mkranthi/Docker.git'
-            }
-        }
-        stage('login into jfrog artifactory'){
-            steps{
-                sh "docker login https://devcompute.jfrog.io -u admin -p Devops@1"
-            }
-        }
-        stage('pullimage from jfrog artifactory'){
-            steps{
-                sh "docker pull devcompute.jfrog.io/itsoli-docker-develop-local/demo3-image:latest"
+                git branch: 'feature', url: 'https://github.com/mkranthi/kubernetes-automation.git'
             }
         }
         stage('create pod'){
@@ -24,3 +14,4 @@ pipeline {
         }
     }
 }
+
