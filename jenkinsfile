@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Code Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/mkranthi/kubernetes-automation.git'
+                git branch: 'feature', url: 'https://github.com/mkranthi/kubernetes-automation.git'
             }
         }
         stage('Build Image') {
             steps {
                 script {
-                    sh 'docker build -t demo3-image .'
+                    sh 'docker build -t sample-image .'
                 }
             }
         }
@@ -20,12 +20,12 @@ pipeline {
         }
         stage('docker tag'){
             steps{
-                sh "docker tag demo3-image devcompute.jfrog.io/itsoli-docker-develop-local/demo3-image"   
+                sh "docker tag sample-image devcompute.jfrog.io/itsoli-docker-develop-local/sample-image:latest"   
             }
         }
         stage('push into jfrog artifactory'){
             steps{
-                sh "docker push devcompute.jfrog.io/itsoli-docker-develop-local/demo3-image"
+                sh "docker push devcompute.jfrog.io/itsoli-docker-develop-local/demo3-image:latest"
             }
         }
         
