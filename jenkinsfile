@@ -9,7 +9,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    sh 'docker build -t sample-image .'
+                    sh 'docker build -t sample-docker-image .'
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('docker tag'){
             steps{
-                sh "docker tag sample-image devcompute.jfrog.io/itsoli-docker-develop-local/sample-image:latest"   
+                sh "docker tag sample-docker-image devcompute.jfrog.io/itsoli-docker-develop-local/sample-docker-image:latest"   
             }
         }
         stage('push into jfrog artifactory'){
