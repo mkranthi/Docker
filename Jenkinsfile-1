@@ -15,7 +15,7 @@ pipeline {
         }
         stage('login into jfrog artifactory'){
             steps{
-                sh "docker login https://https://hub.docker.com/ -u admin -p Devops@admin"
+                sh "docker login https://hub.docker.com/ -u admin -p Devops@admin"
             }
         }
         stage('docker tag'){
