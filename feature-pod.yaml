@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ngnix-pod
+  name: feature-podßß
 spec:
   containers:
     - name: deploy-pod
-      image: devcompute.jfrog.io/itsoli-docker-develop-local/demo2-image
+      image: demo3-image
       ports:
         - containerPort: 80

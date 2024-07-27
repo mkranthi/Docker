@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    stages {
+        stage('Code Checkout') {
+            steps {
+                git branch: 'feature', url: 'https://github.com/mkranthi/Docker.git'
+            }
+        }
+        stage('Build Image') {
+            steps {
+                script {
+                    sh 'docker build -t sample-docker-image .'
+                }
+            }
+        }
+        stage('login into docker artifactory'){
+            steps{
+                sh "docker login https://hub.docker.com -u kmannedev -p Devops@admin"
+            }
+        }
+        stage('docker tag'){
+            steps{
+                sh "docker tag sample-docker-image kmannedev/sample-docker-image:latest"   
+            }
+        }
+        stage('push into dockerhub'){
+            steps{
+                sh "docker push kmannedev/sample-docker-image:latest"
+            }
+        }
+        
+    }
+}
