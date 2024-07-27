@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    stages {
+        stage('Code Checkout') {
+            steps {
+                git url: 'https://github.com/mkranthi/Docker.git'
+            }
+        }
+        stage('Build Image') {
+            steps {
+                script {
+                    sh 'docker build -t sample-docker-image .'
+                }
+            }
+        }
+        stage('login into jfrog artifactory'){
+            steps{
+                sh "docker login https://https://hub.docker.com/ -u admin -p Devops@1"
+            }
+        }
+        stage('docker tag'){
+            steps{
+                sh "docker tag sample-docker-image kmannedev/sample-docker-image:latest"   
+            }
+        }
+        stage('push into jfrog artifactory'){
+            steps{
+                sh "docker push kmannedev/sample-docker-image:latest"
+            }
+        }
+        
+    }
+}
